@@ -1,6 +1,6 @@
 # [Bootstrap + HTML5 Blank](http://html5blank.com)
 
-Combining the Wordpress theme HTML5Blank with Bootstrap. 
+I've start with HTML5Blank but cleaned it up a little more and added Bootstrap. Will try to keep this updated as bootstrap updates.
 
 # Changelog
 **August 22, 2016**
