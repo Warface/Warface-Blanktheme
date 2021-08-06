@@ -1,4 +1,4 @@
-# [Bootstrap + HTML5 Blank](http://html5blank.com)
+# Bootstrap + Blank WP Template
 
 I've start with HTML5Blank but cleaned it up a little more and added Bootstrap. Will try to keep this updated as bootstrap updates.
 
@@ -17,6 +17,11 @@ I've start with HTML5Blank but cleaned it up a little more and added Bootstrap. 
 
 \- Updated bootstrap to 4.3.1
 
+**August 6, 2021**
+
+\- Cleaned functions.php
+\- Classic widget editor forced
+\- Classic content editor forced
+\- Updated bootstrap to 5.1
 
 
-* Bootstrap: [getbootstrap.com](http://getbootstrap.com)
