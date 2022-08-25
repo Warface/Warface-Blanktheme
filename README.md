@@ -1,20 +1,19 @@
-# Bootstrap + Blank WP Template
+# Bootstrap 5.2 + Blank WP Template
 
-I've start with HTML5Blank but cleaned it up a little more and added Bootstrap. Will try to keep this updated as bootstrap updates.
+I've started with HTML5Blank but cleaned it up a little more and added Bootstrap. Will try to keep this updated as bootstrap updates.
 
 # Changelog
 
-**June 12, 2017**
+**August 26, 2022**
 
-\- Updated style.css
+\- Added Yoast bottom in pages
+\- Cleaned some code in functions.php
+\- Cleaned some CSS
+\- Updated bootstrap to 5.2
 
-**August 22, 2016**
+**March 8, 2022**
 
-\- Updated bootstrap to 3.3.7
-
-**November 4, 2019**
-
-\- Updated bootstrap to 4.3.1
+\- Removed jQuery Migrate
 
 **August 6, 2021**
 
@@ -23,6 +22,14 @@ I've start with HTML5Blank but cleaned it up a little more and added Bootstrap. 
 \- Classic content editor forced
 \- Updated bootstrap to 5.1
 
-**March 8, 2022**
+**November 4, 2019**
 
-\- Removed jQuery Migrate
+\- Updated bootstrap to 4.3.1
+
+**August 22, 2017**
+
+\- Updated bootstrap to 3.3.7
+
+**June 12, 2017**
+
+\- Updated style.css
