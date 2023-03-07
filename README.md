@@ -4,6 +4,10 @@ I've started with HTML5Blank but cleaned it up a little more and added Bootstrap
 
 # Changelog
 
+**August March 4, 2023**
+\- Changed reset css for better reset
+
+
 **August 26, 2022**
 
 \- Added Yoast bottom in pages
