@@ -171,7 +171,6 @@ function remove_thumbnail_dimensions( $html ){
 add_action('init', 'warface_header_scripts'); // Add Custom Scripts to wp_head
 add_action('wp_enqueue_scripts', 'warface_styles'); // Add Theme Stylesheet
 add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
-//add_action('init', 'create_post_type_html5'); // Add our HTML5 Blank Custom Post Type
 
 // Remove Actions
 remove_action('wp_head', 'feed_links_extra', 3); // Display the links to the extra feeds such as category feeds
