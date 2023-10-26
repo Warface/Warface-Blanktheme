@@ -33,6 +33,20 @@ add_action( 'wp_default_scripts', 'remove_jquery_migrate' );
 //Put Yoast at bottom
 add_filter( 'wpseo_metabox_prio', function() { return 'low'; } );
 
+//Enable SVG upload for admin only
+function add_svg_to_upload_mimes( $upload_mimes ) {
+    $upload_mimes['svg'] = 'image/svg+xml';
+    $upload_mimes['svgz'] = 'image/svg+xml';
+    return $upload_mimes;
+}
+add_filter( 'upload_mimes', 'add_svg_to_upload_mimes', 10, 1 );
+function allow_unfiltered_uploads_for_admins() {
+    if ( current_user_can( 'manage_options' ) ) {
+        define('ALLOW_UNFILTERED_UPLOADS', true);
+    }
+}
+add_action( 'init', 'allow_unfiltered_uploads_for_admins' );
+
 /*------------------------------------*\
 	Theme Support
 \*------------------------------------*/
