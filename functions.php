@@ -105,7 +105,7 @@ function register_html5_menu(){
     // Using array to specify more menus if needed
     register_nav_menus( array( 
         'header-menu' => __('Header Menu', 'warface'),   // Main Navigation
-        'footer-menu' => __('Sidebar Menu', 'warface'), // Sidebar Navigation
+        'footer-menu' => __('Footer Menu', 'warface'), // Sidebar Navigation
     ));
 }
 
