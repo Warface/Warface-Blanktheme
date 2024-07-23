@@ -20,6 +20,36 @@ add_filter('rest_authentication_errors', function( $result ) {
     return $result;
 });
 
+//Block XLMRPC request
+function add_xmlrpc_block_to_htaccess() {
+    // Define the .htaccess file path
+    $htaccess_file = ABSPATH . '.htaccess';
+    
+    // Define the rules to add
+	$xmlrpc_block = "# Block WordPress xmlrpc.php requests\n";
+    $xmlrpc_block .= "<Files xmlrpc.php>\n    Order Allow,Deny\n    Deny from all\n</Files>\n";
+	$xmlrpc_block .= "# END xmlrpc.php block\n";
+
+    // Check if .htaccess file is writable
+    if (is_writable($htaccess_file)) {
+        // Read the existing contents of the .htaccess file
+        $htaccess_contents = file_get_contents($htaccess_file);
+
+        // Check if the rules already exist
+        if (strpos($htaccess_contents, $xmlrpc_block) === false) {
+            // Append the rules to the .htaccess file
+            file_put_contents($htaccess_file, $xmlrpc_block, FILE_APPEND | LOCK_EX);
+        }
+    } else {
+        // If .htaccess is not writable, you can display an admin notice (optional)
+        add_action('admin_notices', function() {
+            echo '<div class="notice notice-error"><p>The .htaccess file is not writable. Please update the file permissions.</p></div>';
+        });
+    }
+}
+
+// Hook the function to an appropriate action
+add_action('admin_init', 'add_xmlrpc_block_to_htaccess');
 
 // disable for posts
 add_filter('use_block_editor_for_post', '__return_false', 10);
