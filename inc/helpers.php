@@ -1,12 +1,25 @@
 <?php
 function trim_html_words($html, $limit = 50, $ellipsis = '...') {
+    // Handle empty or null input
+    if (empty($html)) {
+        return '';
+    }
+    
     // Load HTML
     $dom = new DOMDocument();
     libxml_use_internal_errors(true);
-    $dom->loadHTML('<?xml encoding="UTF-8">' . $html);
+    
+    // Wrap content to ensure proper structure
+    $dom->loadHTML('<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body>' . $html . '</body></html>');
     libxml_clear_errors();
 
     $body = $dom->getElementsByTagName('body')->item(0);
+    
+    // Additional safety check
+    if (!$body || !$body->childNodes) {
+        return '';
+    }
+    
     $word_count = 0;
     $fragments = [];
 
@@ -43,15 +56,18 @@ function trim_html_node($node, $limit, &$word_count) {
         // Add attributes
         if ($node->hasAttributes()) {
             foreach ($node->attributes as $attr) {
-                $html .= ' ' . $attr->nodeName . '="' . esc_attr($attr->nodeValue) . '"';
+                $html .= ' ' . $attr->nodeName . '="' . htmlspecialchars($attr->nodeValue, ENT_QUOTES) . '"';
             }
         }
 
         $html .= '>';
 
-        foreach ($node->childNodes as $child) {
-            $html .= trim_html_node($child, $limit, $word_count);
-            if ($word_count >= $limit) break;
+        // Check if node has childNodes before iterating
+        if ($node->childNodes) {
+            foreach ($node->childNodes as $child) {
+                $html .= trim_html_node($child, $limit, $word_count);
+                if ($word_count >= $limit) break;
+            }
         }
 
         $html .= '</' . $node->nodeName . '>';
