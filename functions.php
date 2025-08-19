@@ -115,8 +115,8 @@ if (function_exists('add_theme_support')){
     // Enables post and comment RSS feed links to head
     add_theme_support('automatic-feed-links');
 
-    // Localisation Support
-    load_theme_textdomain('warface', get_template_directory() . '/languages');
+    // Localisation Support (Throws warning now, useless)
+    //load_theme_textdomain('warface', get_template_directory() . '/languages');
 }
 
 /*------------------------------------*\
